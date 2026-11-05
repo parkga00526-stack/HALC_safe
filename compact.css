@@ -17,3 +17,14 @@ body main#main[data-view=home]{padding:16px clamp(14px,2.3vw,34px) 18px!importan
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
 
 #main .work-panel>[hidden]{display:none!important}
+/* Home menu feedback: transforms leave the surrounding layout in place. */
+#main .resources-section .tile-arrow{display:inline-block;transition:transform 150ms ease-out}
+@media (hover:hover) and (pointer:fine){
+ #main .tools-section a.service-tile:hover{transform:translateY(-2px)!important;border-color:color-mix(in srgb,var(--edge),#292636 30%)!important;box-shadow:0 4px 10px #24233924!important}
+ #main .resources-section a.service-tile:hover{transform:none!important;background:color-mix(in srgb,var(--fill) 56%,var(--edge))!important;border-color:var(--edge)!important}
+ #main .resources-section a.service-tile:hover .tile-arrow{transform:translateX(3px)!important}
+}
+#main .tools-section a.service-tile:focus-visible,#main .resources-section a.service-tile:focus-visible{outline:2px solid #514381;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){
+ #main .tools-section a.service-tile:hover,#main .resources-section a.service-tile:hover .tile-arrow{transform:none!important}
+}
